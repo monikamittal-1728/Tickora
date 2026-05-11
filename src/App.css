@@ -7,10 +7,8 @@
 
 .main {
   flex: 1;
-  max-width: 760px;
   width: 100%;
   margin: 0 auto;
-  padding: 2rem 1.5rem 4rem;
 }
 
 @media (max-width: 600px) {

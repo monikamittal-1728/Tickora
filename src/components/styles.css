@@ -1,10 +1,14 @@
+/*----------------------------------------
+          HEADER SECTION
+-----------------------------------------*/
+
 header {
   width: 100%;
   height: 80px;
-  background-color: #00000058;
+  background-color: var(--surface);
 }
 .innerSection {
-  max-width: 820px;
+  max-width: 900px;
   width: 100%;
   margin: 0 auto;
   height: 100%;
@@ -59,16 +63,16 @@ header {
   align-items: center;
   justify-content: center;
 }
-.statTag{
+.statTag {
   font-size: 0.75rem;
   color: var(--text-muted);
 }
-.doneStat{
+.doneStat {
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--accent2);
 }
-.leftStat{
+.leftStat {
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--accent);
@@ -77,12 +81,145 @@ header {
 .seprator {
   width: 1px;
   height: 30px;
-  background-color: var(--surface2);
+  background-color: var(--border);
 }
 
-.doneTag{
+.doneTag {
   color: var(--done-tag-color);
 }
-.leftTag{
+.leftTag {
   color: var(--left-color);
+}
+
+/*----------------------------------------
+          PROGRESS LOADER
+-----------------------------------------*/
+
+/* Progress Bar Container */
+.progressBar {
+  width: 100%;
+  height: 2px;
+  background: #656565;
+  overflow: hidden;
+}
+
+/* Progress Fill */
+.progressFill {
+  width: 70%; /* change progress here */
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  border-radius: inherit;
+  transition: width 0.4s ease;
+}
+
+.progressFill {
+  animation: loadBar 1s ease;
+}
+
+@keyframes loadBar {
+  from {
+    width: 0;
+  }
+}
+
+.taskSection {
+  max-width: 900px;
+  width: 100%;
+  margin: 1.5rem auto;
+  padding: 0 1.5rem;
+}
+
+/*----------------------------------------
+          ADD TASK SECTION
+-----------------------------------------*/
+
+.addTaskSection {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.tagLine {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+}
+.innerTagline1 {
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: var(--font-display-1);
+  color: var(--text);
+}
+.innerTagline1 span {
+  color: var(--accent);
+}
+.innerTagline2 {
+  margin-top: 5px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+.addTask {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+.addButton {
+  padding: 0.75rem 1.25rem;
+  background-color: var(--button);
+  color: black;
+  font-weight: 400;
+  border-radius: var(--radius);
+  border: none;
+}
+
+.addButton:hover {
+  background-color: var(--accent);
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.taskInput {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  background: var(--surface2);
+  border: 0.5px solid var(--border);
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition);
+}
+.taskInput::placeholder {
+  color: var(--border);
+}
+
+.taskInput:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(110, 143, 255, 0.1);
+}
+
+.rightSection {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.instruction {
+  font-size: 0.9rem;
+  color: var(--border);
+}
+
+.enterInst {
+  background: var(--surface2);
+  font-size: 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 10px;
+  color: var(--text-muted);
 }
