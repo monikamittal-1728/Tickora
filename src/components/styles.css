@@ -135,7 +135,7 @@ header {
 
 .addTaskSection {
   width: 100%;
-  padding: 1rem 1.5rem;
+  padding: 1.5rem 1.5rem;
   border-radius: var(--radius);
   display: flex;
   align-items: center;
@@ -222,4 +222,156 @@ header {
   border-radius: 6px;
   padding: 4px 10px;
   color: var(--text-muted);
+}
+
+/*----------------------------------------
+          TASK LIST
+-----------------------------------------*/
+
+.taskListSection {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 2rem 1.5rem;
+}
+
+.filterSection {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.allBtn {
+  padding: 0.5rem 1rem;
+  background-color: var(--surface2);
+  color: var(--border);
+  border-radius: var(--radius) 0 0 var(--radius);
+  border: 1px solid var(--border);
+}
+.activeBtn {
+  padding: 0.5rem 1rem;
+  background-color: var(--surface2);
+  color: var(--border);
+  border: 1px solid var(--border);
+}
+.doneBtn {
+  padding: 0.5rem 1rem;
+  background-color: var(--surface2);
+  color: var(--border);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  border: 1px solid var(--border);
+}
+
+.btnHover:hover {
+  color: #67769b;
+  cursor: pointer;
+}
+
+.clearDone {
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  background-color: var(--surface2);
+  color: var(--done-tag-color);
+  border-radius: var(--radius);
+  border: 1px solid var(--done-tag-color);
+}
+.clearDone:hover {
+  color: var(--accent2);
+  border-color: var(--accent2);
+  cursor: pointer;
+}
+
+/*----------------------------------------
+          TASK ITEM
+-----------------------------------------*/
+
+.itemContainer {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  background-color: var(--surface2);
+  border: 1px solid var(--border);
+}
+
+.checkbox {
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+.checkbox:checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.checkbox:checked::after {
+  content: "✓";
+  color: #111827;
+  font-size: 12px;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.itemText {
+  flex: 1;
+  margin-left: 0.75rem;
+  font-size: 1rem;
+  color: #8d98bafd;
+}
+
+.itemContainer:hover {
+  border-color: #67769b;
+  cursor: pointer;
+}
+
+.btnCon {
+  display: flex;
+  gap: 10px;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateX(10px);
+
+  transition: all 0.3s ease;
+}
+
+.itemContainer:hover .btnCon {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.btnNormal {
+  padding: 0.4rem 0.6rem;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  background-color: transparent;
+  color: var(--border);
+  border: none;
+}
+.editBtn:hover {
+  color: var(--accent);
+  cursor: pointer;
+  background-color: #071236ab;
+}
+.deleteBtn:hover {
+  color: var(--danger);
+  cursor: pointer;
+  background-color: #e0555514;
+
 }
