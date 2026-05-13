@@ -5,7 +5,8 @@
 header {
   width: 100%;
   height: 80px;
-  background-color: var(--surface);
+  position: fixed;
+  background-color: var(--header);
 }
 .innerSection {
   max-width: 900px;
@@ -245,29 +246,35 @@ header {
 }
 
 .allBtn {
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 1.5rem;
   background-color: var(--surface2);
   color: var(--border);
   border-radius: var(--radius) 0 0 var(--radius);
   border: 1px solid var(--border);
 }
 .activeBtn {
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 1.5rem;
   background-color: var(--surface2);
   color: var(--border);
   border: 1px solid var(--border);
 }
 .doneBtn {
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 1.5rem;
   background-color: var(--surface2);
   color: var(--border);
   border-radius: 0 var(--radius) var(--radius) 0;
   border: 1px solid var(--border);
 }
 
-.btnHover:hover {
+.filter-tab:hover {
   color: #67769b;
   cursor: pointer;
+}
+
+.filter-tab.active {
+  background: #071236ab;
+  color: var(--accent);
+  border-color: var(--left-color);
 }
 
 .clearDone {
@@ -299,6 +306,44 @@ header {
   border: 1px solid var(--border);
 }
 
+.innerContainer {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.updateInput{
+  width: 80%;
+  background-color: transparent;
+  color: white;
+  border: none;
+}
+.updateInput:focus{
+   outline: none;
+  box-shadow: none;
+  border: none;
+}
+.editStateBtn {
+  margin-left: 10px;
+  font-size: 0.75rem;
+  padding: 3px 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.editStateBtn:hover {
+  color: white;
+  cursor: pointer;
+  background-color: var(--done-tag-color);
+}
+
+.saveBtn {
+  background-color: var(--button);
+}
+.cancelBtn {
+  background-color: #0e18369a;
+  color: #67769b;
+}
 .checkbox {
   appearance: none;
   width: 22px;
@@ -373,5 +418,4 @@ header {
   color: var(--danger);
   cursor: pointer;
   background-color: #e0555514;
-
 }
