@@ -5,7 +5,14 @@ import ToDoItem from "./ToDoItem";
 import "./styles.css";
 import { useState } from "react";
 
-let ToDoList = ({ todos, onAddTodo, onStateToggle,onClearDone,onDeleteTask ,onEditTask}) => {
+let ToDoList = ({
+  todos,
+  onAddTodo,
+  onStateToggle,
+  onClearDone,
+  onDeleteTask,
+  onEditTask,
+}) => {
   const [filter, setFilter] = useState("all"); // all | active | done
   let filteredList = todos;
   if (filter === "done") {
@@ -51,14 +58,33 @@ let ToDoList = ({ todos, onAddTodo, onStateToggle,onClearDone,onDeleteTask ,onEd
               </button>
             </div>
             <div className="clearSection">
-              <button className="clearDone" onClick={()=>{onClearDone()}}>
+              <button
+                className="clearDone"
+                onClick={() => {
+                  onClearDone();
+                }}
+              >
                 <FontAwesomeIcon icon={faBroom} /> Clear done
               </button>
             </div>
           </div>
-          {filteredList.length>0 ? filteredList.map((todo) => (
-            <ToDoItem key={todo.id} todo={todo} onEditTask={onEditTask} onDeleteTask={onDeleteTask} onStateToggle={onStateToggle} />
-          )) : <div> nothing</div>}
+          {filteredList.length > 0 ? (
+            filteredList.map((todo) => (
+              <ToDoItem
+                key={todo.id}
+                todo={todo}
+                onEditTask={onEditTask}
+                onDeleteTask={onDeleteTask}
+                onStateToggle={onStateToggle}
+              />
+            ))
+          ) : (
+            <div className="emptyState">
+              <img className="emptyImg" src="./empty.png" alt="logo" />
+              <p className="emptyLine1">Nothing here yet.</p>
+              <p className="emptyLine2">Start by adding your first task above.</p>
+            </div>
+          )}
         </div>
       </section>
     </>

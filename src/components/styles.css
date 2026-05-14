@@ -312,14 +312,14 @@ header {
   align-items: center;
   justify-content: space-between;
 }
-.updateInput{
+.updateInput {
   width: 80%;
   background-color: transparent;
   color: white;
   border: none;
 }
-.updateInput:focus{
-   outline: none;
+.updateInput:focus {
+  outline: none;
   box-shadow: none;
   border: none;
 }
@@ -418,4 +418,31 @@ header {
   color: var(--danger);
   cursor: pointer;
   background-color: #e0555514;
+}
+
+/* empty state */
+
+.emptyState {
+  display: flex;
+  min-height: 200px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.emptyImg{
+  height: 50px;
+  width: 50px;
+  opacity: 0.5;
+  color: var(--accent);
+}
+.emptyLine1{
+  margin-top: 20px;
+  color: #8d98bafd;
+}
+
+.emptyLine2{
+  margin-top: 10px;
+  font-size: 0.80rem;
+  color: #545c71fd;
 }

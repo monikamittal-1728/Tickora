@@ -1,9 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import ToDoList from "./components/ToDoList";
 function App() {
-  const [todos, setTodos] = useState([]);
+  const sessionName = "TickoraSession";
+  const [todos, setTodos] = useState(() => {
+    const storedTodos = localStorage.getItem(sessionName);
+    return storedTodos ? JSON.parse(storedTodos) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem(sessionName, JSON.stringify(todos));
+  }, [todos]);
+
   const [confirmDialog, setConfirmDialog] = useState({
     open: false,
     message: "",
