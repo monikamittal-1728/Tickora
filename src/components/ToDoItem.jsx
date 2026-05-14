@@ -50,7 +50,7 @@ let ToDoItem = ({ todo, onStateToggle, onDeleteTask, onEditTask }) => {
             onChange={(e) => setUpdatedText(e.target.value)}
             className="updateInput"
           />
-          <div>
+          <div className="editBtnCon">
             <button
               onClick={() => handleEdit()}
               className="editStateBtn saveBtn"

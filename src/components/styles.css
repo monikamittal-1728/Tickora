@@ -314,7 +314,7 @@ header {
   align-items: center;
   margin-top: 10px;
   justify-content: space-between;
-  padding: 0.75rem 1rem;
+  padding: 0.55rem 0.85rem;
   border-radius: var(--radius);
   background-color: var(--surface2);
   border: 1px solid var(--border);
@@ -322,9 +322,17 @@ header {
 
 .innerContainer {
   display: flex;
+  gap: 0.75rem;
   width: 100%;
   align-items: center;
   justify-content: space-between;
+}
+.editBtnCon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
+  gap: 10px;
 }
 .updateInput {
   width: 80%;
@@ -338,7 +346,6 @@ header {
   border: none;
 }
 .editStateBtn {
-  margin-left: 10px;
   font-size: 0.75rem;
   padding: 3px 10px;
   border: none;
@@ -461,4 +468,206 @@ header {
   margin-top: 10px;
   font-size: 0.8rem;
   color: #545c71fd;
+}
+
+/*----------------------------------------
+          MOBILE RESPONSIVE
+-----------------------------------------*/
+
+@media (max-width: 768px) {
+  /* HEADER */
+
+  .logo {
+    width: 26px;
+    height: 26px;
+  }
+
+  .logoName {
+    font-size: 1.2rem;
+  }
+
+  .taskCountCon {
+    width: auto;
+    gap: 0.5rem;
+  }
+
+  .taskStat {
+    align-items: center;
+  }
+
+  .doneStat,
+  .leftStat {
+    font-size: 1rem;
+  }
+
+  .statTag {
+    font-size: 0.65rem;
+  }
+
+  .seprator {
+    height: 22px;
+  }
+
+  /* MAIN SECTION */
+
+  .taskSection {
+    padding: 0 0.85rem;
+  }
+
+  /* ADD TASK SECTION */
+
+  .addTaskSection {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.25rem 0;
+  }
+  .instruction {
+    line-height: 1.8;
+  }
+  .tagLine {
+    width: 100%;
+  }
+
+  .innerTagline1 {
+    font-size: 1.6rem;
+    line-height: 1.3;
+  }
+
+  .innerTagline2 {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .rightSection {
+    width: 100%;
+  }
+
+  .addTask {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.8rem;
+  }
+
+  .taskInput {
+    width: 100%;
+    font-size: 0.95rem;
+  }
+
+  .addButton {
+    width: 100%;
+    padding: 0.85rem;
+  }
+
+  .instruction {
+    font-size: 0.8rem;
+  }
+
+  /* TASK LIST */
+
+  .taskListSection {
+    padding: 1.5rem 0;
+  }
+
+  .filterSection {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .filters {
+    display: flex;
+    width: 100%;
+  }
+
+  .allBtn,
+  .activeBtn,
+  .doneBtn {
+    flex: 1;
+    text-align: center;
+    font-size: 0.85rem;
+    padding: 0.7rem 0;
+  }
+
+  .clearSection {
+    display: flex;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .clearDone,
+  .clearAll {
+    flex: 1;
+    font-size: 0.75rem;
+    padding: 0.7rem 0.5rem;
+  }
+
+  /* TASK ITEM */
+
+  .checkbox {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+  }
+
+  .itemText {
+    font-size: 0.92rem;
+    line-height: 1.4;
+    word-break: break-word;
+  }
+
+  /* ALWAYS SHOW BUTTONS ON MOBILE */
+
+  .btnCon {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    gap: 4px;
+  }
+
+  .btnNormal {
+    padding: 0.4rem;
+    font-size: 0.8rem;
+  }
+
+  /* EDIT MODE */
+
+  .updateInput {
+    width: 100%;
+    font-size: 0.95rem;
+  }
+  .editBtnCon {
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    gap:1px;
+  }
+  .editStateBtn {
+    width: 50px;
+    margin-top: 10px;
+    font-size: 0.75rem;
+  }
+
+  /* EMPTY STATE */
+
+  .emptyState {
+    min-height: 160px;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .emptyImg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .emptyLine1 {
+    margin-top: 16px;
+    font-size: 0.95rem;
+  }
+
+  .emptyLine2 {
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
 }

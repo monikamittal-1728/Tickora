@@ -64,18 +64,23 @@ function App() {
     );
   };
   const clearAlltask = () => {
-    showConfirm(
-      "Clear All Task?",
-      "Are you sure you want to remove all tasks? This action cannot be undone!",
-      () => {
-        setTodos([]);
-        showToast("Completed tasks cleared");
-      },
-    );
+    if (todos.length > 0) {
+      showConfirm(
+        "Clear All Task?",
+        "Are you sure you want to remove all tasks? This action cannot be undone!",
+        () => {
+          setTodos([]);
+          showToast("Completed tasks cleared");
+        },
+      );
+    }else{
+      showToast("There is no task to clear!");
+    }
   };
 
   const clearDoneTask = () => {
-    showConfirm(
+    if(doneTask!=0){
+showConfirm(
       "Clear All Done Task?",
       "Are you sure you want to remove all done tasks? This action cannot be undone!",
       () => {
@@ -83,6 +88,10 @@ function App() {
         showToast("Completed tasks cleared");
       },
     );
+    }else{
+      showToast("There is no done task to remove!");
+    }
+    
   };
 
   const editTask = (id, text) => {
@@ -161,7 +170,7 @@ function App() {
         </div>
       )}
 
-      {toast.visible && <div className="toast">✓ {toast.message}</div>}
+      {toast.visible && <div className="toast"> {toast.message}</div>}
     </>
   );
 }
