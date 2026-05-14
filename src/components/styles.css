@@ -290,6 +290,20 @@ header {
   border-color: var(--accent2);
   cursor: pointer;
 }
+.clearAll {
+  margin-left: 10px;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  background-color: var(--surface2);
+  color: var(--left-color);
+  border-radius: var(--radius);
+  border: 1px solid var(--left-color);
+}
+.clearAll:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  cursor: pointer;
+}
 
 /*----------------------------------------
           TASK ITEM
@@ -420,7 +434,9 @@ header {
   background-color: #e0555514;
 }
 
-/* empty state */
+/*----------------------------------------
+          EMPTY STATE
+-----------------------------------------*/
 
 .emptyState {
   display: flex;
@@ -430,19 +446,19 @@ header {
   align-items: center;
 }
 
-.emptyImg{
+.emptyImg {
   height: 50px;
   width: 50px;
   opacity: 0.5;
   color: var(--accent);
 }
-.emptyLine1{
+.emptyLine1 {
   margin-top: 20px;
   color: #8d98bafd;
 }
 
-.emptyLine2{
+.emptyLine2 {
   margin-top: 10px;
-  font-size: 0.80rem;
+  font-size: 0.8rem;
   color: #545c71fd;
 }

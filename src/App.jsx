@@ -15,6 +15,7 @@ function App() {
 
   const [confirmDialog, setConfirmDialog] = useState({
     open: false,
+    heading: "",
     message: "",
     onConfirm: null,
   });
@@ -43,8 +44,8 @@ function App() {
       ),
     );
   };
-  const showConfirm = (message, onConfirm) => {
-    setConfirmDialog({ open: true, message, onConfirm });
+  const showConfirm = (heading, message, onConfirm) => {
+    setConfirmDialog({ open: true, heading, message, onConfirm });
   };
 
   const showToast = (message) => {
@@ -53,17 +54,35 @@ function App() {
   };
 
   const deleteTask = (id, taskName) => {
-    showConfirm(`Delete "${taskName}"?`, () => {
-      setTodos((prev) => prev.filter((todo) => todo.id !== id));
-      showToast(`"${taskName}" deleted successfully`);
-    });
+    showConfirm(
+      "Delete Task ?",
+      `Are you sure you want to delete "${taskName}"?`,
+      () => {
+        setTodos((prev) => prev.filter((todo) => todo.id !== id));
+        showToast(`"${taskName}" deleted successfully`);
+      },
+    );
+  };
+  const clearAlltask = () => {
+    showConfirm(
+      "Clear All Task?",
+      "Are you sure you want to remove all tasks? This action cannot be undone!",
+      () => {
+        setTodos([]);
+        showToast("Completed tasks cleared");
+      },
+    );
   };
 
   const clearDoneTask = () => {
-    showConfirm("Clear all completed tasks?", () => {
-      setTodos((prev) => prev.filter((todo) => !todo.done));
-      showToast("Completed tasks cleared");
-    });
+    showConfirm(
+      "Clear All Done Task?",
+      "Are you sure you want to remove all done tasks? This action cannot be undone!",
+      () => {
+        setTodos((prev) => prev.filter((todo) => !todo.done));
+        showToast("Completed tasks cleared");
+      },
+    );
   };
 
   const editTask = (id, text) => {
@@ -88,45 +107,30 @@ function App() {
             onClearDone={clearDoneTask}
             onDeleteTask={deleteTask}
             onEditTask={editTask}
+            onClearAll={clearAlltask}
           />
         </main>
       </div>
       {/* Confirm Dialog */}
       {confirmDialog.open && (
         <div
+          className="dialogOverlay"
           onClick={() =>
-            setConfirmDialog({ open: false, message: "", onConfirm: null })
+            setConfirmDialog({
+              open: false,
+              message: "",
+              onConfirm: null,
+            })
           }
-          style={{
-            position: "fixed",
-            inset: 0,
-            background: "rgba(0,0,0,0.4)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            zIndex: 999,
-          }}
         >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            style={{
-              background: "white",
-              borderRadius: "12px",
-              padding: "24px",
-              width: "320px",
-            }}
-          >
-            <p style={{ marginBottom: "20px", fontWeight: "500" }}>
-              {confirmDialog.message}
-            </p>
-            <div
-              style={{
-                display: "flex",
-                gap: "10px",
-                justifyContent: "flex-end",
-              }}
-            >
+          <div className="dialogBox" onClick={(e) => e.stopPropagation()}>
+            <p className="dialogHeading">{confirmDialog.heading}</p>
+
+            <p className="dialogMessage">{confirmDialog.message}</p>
+
+            <div className="dialogBtns">
               <button
+                className="cancelBtn"
                 onClick={() =>
                   setConfirmDialog({
                     open: false,
@@ -137,16 +141,18 @@ function App() {
               >
                 Cancel
               </button>
+
               <button
+                className="deleteBtn"
                 onClick={() => {
                   confirmDialog.onConfirm();
+
                   setConfirmDialog({
                     open: false,
                     message: "",
                     onConfirm: null,
                   });
                 }}
-                style={{ color: "red" }}
               >
                 Delete
               </button>
@@ -155,24 +161,7 @@ function App() {
         </div>
       )}
 
-      {/* Toast */}
-      {toast.visible && (
-        <div
-          style={{
-            position: "fixed",
-            bottom: "24px",
-            right: "24px",
-            background: "#1a1a1a",
-            color: "white",
-            padding: "12px 20px",
-            borderRadius: "8px",
-            fontSize: "14px",
-            zIndex: 1000,
-          }}
-        >
-          ✓ {toast.message}
-        </div>
-      )}
+      {toast.visible && <div className="toast">✓ {toast.message}</div>}
     </>
   );
 }

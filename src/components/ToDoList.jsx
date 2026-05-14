@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
 import { faBroom } from "@fortawesome/free-solid-svg-icons";
 import AddTask from "./AddTask";
 import ToDoItem from "./ToDoItem";
@@ -11,7 +12,7 @@ let ToDoList = ({
   onStateToggle,
   onClearDone,
   onDeleteTask,
-  onEditTask,
+  onEditTask,onClearAll,
 }) => {
   const [filter, setFilter] = useState("all"); // all | active | done
   let filteredList = todos;
@@ -66,6 +67,14 @@ let ToDoList = ({
               >
                 <FontAwesomeIcon icon={faBroom} /> Clear done
               </button>
+              <button
+                className="clearAll"
+                onClick={() => {
+                  onClearAll();
+                }}
+              >
+                <FontAwesomeIcon icon={faTrashCan} /> Clear All
+              </button>
             </div>
           </div>
           {filteredList.length > 0 ? (
@@ -82,7 +91,9 @@ let ToDoList = ({
             <div className="emptyState">
               <img className="emptyImg" src="./empty.png" alt="logo" />
               <p className="emptyLine1">Nothing here yet.</p>
-              <p className="emptyLine2">Start by adding your first task above.</p>
+              <p className="emptyLine2">
+                Start by adding your first task above.
+              </p>
             </div>
           )}
         </div>
