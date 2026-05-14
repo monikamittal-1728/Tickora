@@ -17,17 +17,9 @@ let ToDoList = ({
   const [filter, setFilter] = useState("all"); // all | active | done
   let filteredList = todos;
   if (filter === "done") {
-    filteredList = todos.filter((todo) => {
-      if (todo.done) {
-        return todo;
-      }
-    });
+    filteredList = todos.filter(todo => todo.done);
   } else if (filter === "active") {
-    filteredList = todos.filter((todo) => {
-      if (!todo.done) {
-        return todo;
-      }
-    });
+    filteredList = todos.filter(todo => !todo.done);
   }
 
 

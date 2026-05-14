@@ -392,6 +392,12 @@ header {
   transform: translate(-50%, -50%);
 }
 
+/* When checkbox is checked, style the sibling text */
+.checkbox:checked ~ .itemText {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
 .itemText {
   flex: 1;
   margin-left: 0.75rem;

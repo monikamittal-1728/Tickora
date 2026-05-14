@@ -12,7 +12,7 @@ let AddTask = ({ onAddTodo }) => {
   };
 
   let handleAdd = () => {
-    if (inputText.length > 0) {
+    if (inputText.trim().length > 0) {
       onAddTodo(inputText);
       setInputText("");
     }

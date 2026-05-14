@@ -55,7 +55,7 @@ function App() {
   const deleteTask = (id, taskName) => {
     showConfirm(
       "Delete Task ?",
-      `Are you sure you want to delete "${taskName}"?`,
+      `Are you sure you want to delete "${taskName}" task?`,
       () => {
         setTodos((prev) => prev.filter((todo) => todo.id !== id));
         showToast(`"${taskName}" deleted successfully`);
@@ -69,7 +69,7 @@ function App() {
         "Are you sure you want to remove all tasks? This action cannot be undone!",
         () => {
           setTodos([]);
-          showToast("Completed tasks cleared");
+          showToast("All tasks cleared");
         },
       );
     }else{
@@ -84,7 +84,7 @@ showConfirm(
       "Are you sure you want to remove all done tasks? This action cannot be undone!",
       () => {
         setTodos((prev) => prev.filter((todo) => !todo.done));
-        showToast("Completed tasks cleared");
+        showToast("Done tasks cleared");
       },
     );
     }else{

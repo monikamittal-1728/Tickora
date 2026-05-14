@@ -5,7 +5,6 @@ import "./styles.css";
 
 let ToDoItem = ({ todo, onStateToggle, onDeleteTask, onEditTask }) => {
   const inputRef = useRef(null);
-  const [isChecked, setIsChecked] = useState(todo.done);
   const [isEditing, setIsEditing] = useState(false);
   const [updatedText, setUpdatedText] = useState(todo.text);
   useEffect(() => {
@@ -17,11 +16,7 @@ let ToDoItem = ({ todo, onStateToggle, onDeleteTask, onEditTask }) => {
       inputRef.current.setSelectionRange(length, length);
     }
   }, [isEditing]);
-  const handleCheckbox = (e) => {
-    setIsChecked(e.target.checked);
-    onStateToggle(todo.id);
-  };
-
+  
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       handleEdit();
@@ -69,8 +64,8 @@ let ToDoItem = ({ todo, onStateToggle, onDeleteTask, onEditTask }) => {
           <input
             type="checkbox"
             className="checkbox"
-            checked={isChecked}
-            onChange={handleCheckbox}
+            checked={todo.done}
+            onChange={() => onStateToggle(todo.id)} 
           />
           <p className="itemText">{todo.text}</p>
           <div className="btnCon">
