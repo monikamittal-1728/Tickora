@@ -12,8 +12,10 @@ let AddTask = ({ onAddTodo }) => {
   };
 
   let handleAdd = () => {
-    onAddTodo(inputText);
-    setInputText("");
+    if (inputText.length > 0) {
+      onAddTodo(inputText);
+      setInputText("");
+    }
   };
   return (
     <section className="addTaskSection">

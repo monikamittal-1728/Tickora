@@ -30,7 +30,6 @@ let ToDoItem = ({ todo, onStateToggle, onDeleteTask, onEditTask }) => {
   };
 
   let handleEdit = () => {
-    console.log("here");
     onEditTask(todo.id, updatedText);
     setIsEditing(false);
   };

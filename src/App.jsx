@@ -28,7 +28,6 @@ function App() {
   const taskProgress = total === 0 ? 0 : Math.round((doneTask / total) * 100); // 30
 
   const addTodo = (text) => {
-    console.log("Adding todo:", text);
     const newTodo = {
       id: Date.now(),
       text,
@@ -95,7 +94,6 @@ showConfirm(
   };
 
   const editTask = (id, text) => {
-    console.log(id, text);
     setTodos((prev) =>
       prev.map((todo) => (todo.id === id ? { ...todo, text: text } : todo)),
     );

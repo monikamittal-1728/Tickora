@@ -30,7 +30,6 @@ let ToDoList = ({
     });
   }
 
-  console.log(filteredList);
 
   return (
     <>
