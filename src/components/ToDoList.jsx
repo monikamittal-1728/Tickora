@@ -12,7 +12,7 @@ let ToDoList = ({
   onStateToggle,
   onClearDone,
   onDeleteTask,
-  onEditTask,onClearAll,
+  onEditTask,onClearAll,showToast
 }) => {
   const [filter, setFilter] = useState("all"); // all | active | done
   let filteredList = todos;
@@ -26,7 +26,7 @@ let ToDoList = ({
   return (
     <>
       <section className="taskSection">
-        <AddTask onAddTodo={onAddTodo} />
+        <AddTask onAddTodo={onAddTodo} showToast={showToast} />
         <div className="taskListSection">
           <div className="filterSection">
             <div className="filters">

@@ -115,6 +115,7 @@ showConfirm(
             onDeleteTask={deleteTask}
             onEditTask={editTask}
             onClearAll={clearAlltask}
+            showToast={showToast}
           />
         </main>
       </div>

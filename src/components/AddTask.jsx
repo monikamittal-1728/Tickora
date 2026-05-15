@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
-let AddTask = ({ onAddTodo }) => {
+let AddTask = ({ onAddTodo ,showToast}) => {
   const [inputText, setInputText] = useState("");
 
   const handleKeyDown = (e) => {
@@ -15,7 +15,9 @@ let AddTask = ({ onAddTodo }) => {
     if (inputText.trim().length > 0) {
       onAddTodo(inputText);
       setInputText("");
-    }
+   }else{
+    showToast("Please enter task to Add!")
+   }
   };
   return (
     <section className="addTaskSection">
